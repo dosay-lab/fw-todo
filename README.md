@@ -13,6 +13,10 @@ Java / Spring Boot / MySQLを使用して制作している、個人向けのToD
 
 ![ToDo一覧。キーワード検索、ジャンル絞り込み、期限による並び替えとタスクの一覧表示](./docs/images/todo-list.webp)
 
+### ToDo新規登録
+
+![ToDo新規登録。タイトル、メモ、ジャンル、優先度、期限の入力フォーム](./docs/images/todo-create.svg)
+
 ### ToDo編集
 
 ![ToDo編集。タイトル、メモ、ジャンル、優先度、期限、完了状態の入力フォーム](./docs/images/todo-edit.webp)
