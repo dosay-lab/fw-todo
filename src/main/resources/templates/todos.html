@@ -3,12 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>やること一覧</title>
+    <script>
+        (function () {
+            var theme;
+            try {
+                theme = localStorage.getItem('theme');
+            } catch (error) {
+                // Use the system setting when storage is unavailable.
+            }
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/theme.js"></script>
 </head>
 <body>
     <div class="container">
         <p class="flash" th:if="${message}" th:text="${message}"></p>
-        <h1 class="page-title">やること一覧</h1>
+        <header class="page-header">
+            <h1 class="page-title">やること一覧</h1>
+            <button class="theme-toggle" type="button" aria-label="ダークモードに切り替え" title="ダークモードに切り替え">
+                <span class="material-icons theme-icon-dark" aria-hidden="true">dark_mode</span>
+                <span class="material-icons theme-icon-light" aria-hidden="true">light_mode</span>
+            </button>
+        </header>
         <form class="search-bar" method="get" action="/todos">
             <label for="keyword">やること</label>
             <input type="text" id="keyword" name="keyword" th:value="${keyword}">
